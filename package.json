@@ -1,0 +1,20 @@
+{
+  "name": "marcelvanderhoek",
+  "version": "1.0.0",
+  "description": "Website for marcelvanderhoek.com",
+  "main": "mars.js",
+  "scripts": {
+    "start": "nodemon mars.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcelvanderhoek/dotcom/"
+  },
+  "author": "Marcel van der Hoek",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0"
+  }
+}
