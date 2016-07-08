@@ -2,9 +2,40 @@
 <html>
 <head>
 	<title>Marcel van der Hoek.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	{{{_sections.head}}}
+	{{#if showTests}}
+		<link rel="stylesheet" href="/vendor/mocha.css">
+	{{/if}}
 </head>
 <body>
+	<div class="container-fluid">
 	<header><img src="/img/profilepic.jpg" alt="Marcel van der Hoek"></header>
+	{{#if flash}}
+		<div class="alert alert-dismissible alert-{{flash.type}}">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>{{flash.intro}}</strong> {{{flash.message}}}
+		</div>
+	{{/if}}
 	{{{body}}}
+	{{#if showTests}}
+		<div id="mocha"></div>
+		<script src="/vendor/mocha.js"></script>
+		<script src="/vendor/chai.js"></script>
+		<script>
+			mocha.ui('tdd');
+			var assert = chai.assert;
+		</script>
+		<script src="/qa/tests-global.js"></script>
+		{{#if pageTestScript}}
+			<script src="{{pageTestScript}}"></script>
+		{{/if}}
+		<script>mocha.run();</script>
+	{{/if}}
+	</div>
+	{{{_sections.jquery}}}
 </body>
 </html>

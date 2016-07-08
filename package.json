@@ -9,12 +9,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcelvanderhoek/dotcom/"
+    "url": "https://github.com/marcelvanderhoek/website/"
   },
   "author": "Marcel van der Hoek",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "connect": "^3.4.1",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "express-logger": "0.0.3",
+    "express-session": "^1.14.0",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^0.4.3",
+    "grunt-cafe-mocha": "^0.1.13",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-link-checker": "^0.1.0",
+    "mocha": "^2.5.3",
+    "zombie": "^4.2.1"
   }
 }
