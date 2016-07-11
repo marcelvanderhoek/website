@@ -31,6 +31,7 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-link-checker": "^0.1.0",
     "mocha": "^2.5.3",
+    "loadtest": "^1.4.3",
     "zombie": "^4.2.1"
   }
 }
