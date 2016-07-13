@@ -10,6 +10,19 @@ var connect = require('connect');
 var compression = require('compression');
 var morgan = require('morgan');
 var fs = require('fs');
+var mongoose = require('mongoose');
+var opts = {
+	server: {
+		socketOptions: {
+			keepAlive: 1
+		}
+	}
+};
+
+mongoose.connect(credentials.mongo.development.connectionString, opts);
+
+var MongoSessionStore = require('session-mongoose')(require('connect'));
+var sessionStore = new MongoSessionStore({ url: credentials.mongo.connectionString });
 
 handlebars = handlebars.create({ 
 	defaultLayout: 'main',
@@ -81,8 +94,9 @@ app.use(function(req, res, next) {
 
 app.use(compression()); // gzip
 app.use(express.static(__dirname + '/public'));
-app.use(cookieParser);
+app.use(cookieParser)(credentials.cookieSecret);
 app.use(expressSession({
+	store: sessionStore,
 	secret: credentials.cookieSecret,
 	resave: true,
 	saveUninitialized: true
